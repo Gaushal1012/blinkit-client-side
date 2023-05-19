@@ -1,0 +1,323 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.header {
+  height: 90px;
+  border: 1px solid rgb(235, 225, 225);
+  display: flex;
+  align-items: center;
+  padding: 0px 20px;
+}
+
+.navigate {
+  margin-left: 90px;
+  align-items: center;
+  gap: 20px;
+}
+
+.current_address h5 {
+  margin-top: 10px;
+  font-weight: 700;
+}
+
+.searchbar {
+  margin-left: 50px;
+  width: 500px;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  align-items: center;
+  background-color: rgb(248, 243, 243);
+  border: 1px solid rgb(235, 225, 225);
+  border-radius: 8px;
+}
+
+.searchbar input {
+  border: none;
+  outline: none;
+  background-color: rgb(248, 243, 243);
+}
+
+.searchbar img {
+  height: 20px;
+  margin: 0px 10px;
+}
+
+.login {
+  margin: 0px 40px;
+}
+
+.login a {
+  font-size: 20px;
+  text-decoration: none;
+  color: rgb(75, 74, 74);
+  font-weight: 400;
+}
+
+.mycart {
+  margin-left: 35px;
+}
+
+.mycart .button {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  align-items: center;
+  background-color: rgb(0, 163, 0);
+  border: 1px solid rgb(0, 163, 0);
+  border-radius: 8px;
+}
+
+.mycart .button i {
+  font-size: 50px;
+  height: 50px;
+  width: 50px;
+  color: red;
+}
+
+.mycart .button span {
+  color: white;
+}
+
+.mycart .button p {
+  color: white;
+  font-weight: 500;
+  margin-top: 10px;
+  margin-right: 4px;
+}
+
+.hero_section {
+  margin: 0px 40px;
+}
+
+.hero_section .offers {
+  margin: 15px 13px;
+  display: flex;
+  overflow-x: hidden;
+  gap: 20px;
+}
+.hero_section .offers img {
+  border-radius: 1rem;
+  height: 200px;
+  width: 400px;
+}
+
+.hero_section .feature_product {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+}
+
+.hero_section .feature_product img {
+  border-radius: 1rem;
+  width: 125px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.container {
+  width: 180px;
+  border: 1px solid rgb(235, 225, 225);
+  border-radius: 6px;
+}
+
+.container .top {
+  height: 50%;
+}
+
+.container .top img {
+  width: 130px;
+  margin-left: 12px;
+}
+
+.title .product_name {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.title p {
+  font-size: 13px;
+  font-weight: normal;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bottom .price {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1px;
+}
+
+.bottom .price p {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.bottom .price .button {
+  width: 70px;
+  height: 30px;
+  font-size: 13px;
+  font-weight: 600;
+  background-color: rgba(248, 243, 243, 0.877);
+  border: 1px solid rgb(0, 163, 0);
+  border-radius: 4px;
+  color: rgb(0, 163, 0);
+}
+
+.product_section {
+  margin: 25px 50px;
+}
+
+.product_section h4 {
+  margin: 20px 15px;
+  font-weight: 700;
+}
+
+.footer {
+  margin: 80px 35px 0px 35px;
+}
+
+.footer .references {
+  display: flex;
+}
+
+.references div h5 {
+  margin-left: 28px;
+  margin-bottom: 20px;
+}
+
+.references div {
+  gap: 50px;
+}
+
+.references div ul li {
+  list-style: none;
+  color: rgb(133, 127, 127);
+  margin-bottom: 5px;
+}
+
+.references .categories div {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 70px;
+}
+
+.references .categories div ul {
+  width: 200px;
+}
+
+.references .categories div ul li {
+  list-style: none;
+  color: rgb(133, 127, 127);
+  margin-bottom: 5px;
+}
+
+/* .references .categories div{
+  gap: 50px;
+} */
+
+.references .categories {
+  margin-left: 150px;
+}
+
+.references .categories span {
+  margin: 0px 8px;
+  font-weight: 500;
+  font-size: 15px;
+  color: rgb(0, 163, 0);
+}
+
+.contactus {
+  margin: 25px 20px;
+  display: flex;
+  align-items: center;
+  gap: 125px;
+  color: rgb(133, 127, 127);
+}
+
+.contactus div {
+  width: 33%;
+}
+
+.contactus .para{
+  font-size: 13px;
+}
+
+.contactus .app {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.contactus .app p {
+  margin-top: 10px;
+  font-weight: 700;
+}
+
+.contactus .social_media{
+  display: flex;
+  justify-content: end;
+}
+
+.social_media img{
+  width: 75px;
+  height: 70px;
+}
+
+.contactus .app img {
+  width: 90px;
+  height: 30px;
+}
+
+.bio p{
+  margin: 0px 15px;
+  color: rgb(133, 127, 127);
+}
+
+.addremove{
+  display: flex;
+  justify-content: space-evenly;
+  width: 70px;
+  height: 30px;
+  font-size: 13px;
+  font-weight: 600;
+  background-color: rgb(0, 163, 0);
+  border: 1px solid rgb(0, 163, 0);
+  border-radius: 4px;
+  color: white;
+}
+
+.addremove:hover{
+  cursor: pointer;
+}
+
+.addremove p{
+  margin-top: 4px;
+}
+
+.addremove .icon{
+  font-size: 40px;
+}
+
+.modal-wrapper{
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.192);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+}
+
+.modal-body{
+  background-color: white;
+}
+
