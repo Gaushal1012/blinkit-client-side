@@ -1,38 +1,39 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 import Slider from "react-slick";
-import ProductCard from "./ProductCard";
+import ProductCard from './ProductCard';
+import { useFilterContext } from "../context/Filter_context";
+import { Link } from "react-router-dom";
 
 const NamkinSection = () => {
-  const [userData, setUserData] = useState([]);
+  const [product, setProduct] = useState([]);
 
-  const callProduct = async () => {
-    try {
-      const response = await fetch("http://localhost:3000/api/v1/products/", {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-      });
+  const { all_products } = useFilterContext();
 
-      const data = await response.json();
-      // console.log(data);
-      setUserData(data);
-    } catch (error) {
-      console.log("please check clearly");
-    }
+  //TO GET THE UNIQUE DATA OF EACH FIELDS
+  const getUniqueData = (data, property, searchItem) => {
+    // let newVal = [];
+    let newVal = data.filter((element, index) => {
+      return element[property].name === searchItem;
+    });
+    setProduct(newVal);
+    console.log(newVal);
   };
-
+  
+  //WE NEED UNIQUE DATA
   useEffect(() => {
-    callProduct();
-  }, []);
+    getUniqueData(
+      all_products,
+      "category",
+      "Snacks & Munchies"
+    );
+  }, [all_products]);  
 
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;
     return (
       <div
         className={className}
-        style={{ ...style, display: "block", background: "black" }}
+        style={{ ...style, display: "block",zIndex:"10", filter: "brightness(0.3)", scale: "1.5", right:"8px" }}
         onClick={onClick}
       />
     );
@@ -44,11 +45,7 @@ const NamkinSection = () => {
       <div
         className={className}
         style={{
-          ...style,
-          display: "block",
-          color: "red",
-          backgroundColor: "white",
-          background: "red",
+          ...style, display: "block", zIndex:"10", filter: "brightness(0.3)", scale: "1.5", left:"-8px"
         }}
         onClick={onClick}
       />
@@ -71,19 +68,19 @@ const NamkinSection = () => {
         <h4>Snacks & Munchies</h4>
             <div>
               <Slider {...settings}>
-        {userData.map((val, _id) => {
-          return (
-                
-                  <ProductCard
-                    key={val._id}
-                    imgSrc={`http://localhost:3000/public`+val.image}
-                    title={val.name}
-                    weight={val.Unit}
-                    price={val.price}
-                  />
-                
-                  );
-                })}
+              {product && product.map((curElem, index) => {
+              return (
+                <Link style={{textDecoration: "none"}} to={`/products/${curElem._id}`}>
+                <ProductCard
+                  key={curElem._id}
+                  imgSrc={`http://localhost:3000/public` + curElem.image}
+                  title={curElem.name}
+                  weight={curElem.Unit}
+                  price={curElem.price}
+                />
+                </Link>
+              );
+            })}
               </Slider>
             </div>
       </div>

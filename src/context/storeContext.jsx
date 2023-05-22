@@ -9,7 +9,9 @@ const initialState = {
   isError: false,
   products: [],
   categories: [],
-  productbycategory:[]
+  productbycategory:[],
+  isSingleLoading: false,
+  singleProduct:{}
 };
 
 export const StoreState = ({ children }) => {
@@ -56,6 +58,19 @@ export const StoreState = ({ children }) => {
       }
     }
 
+  //Get single product 
+  const getSingleProduct = async (id) =>{
+    dispatch({type:"SET_SINGLE_LOADING"});
+    try {
+      const res = await axios.get(`http://localhost:3000/api/v1/products/${id}`);
+      const singleProduct = await res.data;
+      dispatch({type:"SET_SINGLE_PRODUCT", payload:singleProduct});
+      // console.log(products);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   // //get all products
   // const getProducts = async () =>{
   //   const response = await fetch("http://localhost:3000/api/v1/categories/", {
@@ -84,12 +99,11 @@ export const StoreState = ({ children }) => {
   }
 
 useEffect(() => {
-  // getCategory();
   getProductList();
 }, []);
 
   return (
-    <StoreContext.Provider value={{ ...state }}>
+    <StoreContext.Provider value={{ ...state, getSingleProduct }}>
       {children}
     </StoreContext.Provider>
   );

@@ -1,10 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import ProductCard from "./ProductCard";
 import { useFilterContext } from "../context/Filter_context";
 import { Link } from "react-router-dom";
 
-const ProteinSection = () => {
+const VegetableAndFruits = () => {
   const [product, setProduct] = useState([]);
 
   const { all_products } = useFilterContext();
@@ -18,14 +18,10 @@ const ProteinSection = () => {
     setProduct(newVal);
     console.log(newVal);
   };
-  
+
   //WE NEED UNIQUE DATA
   useEffect(() => {
-    getUniqueData(
-      all_products,
-      "category",
-      "Dairy, Bread & Eggs"
-    );
+    getUniqueData(all_products, "category", "Vegetables & Fruits");
   }, [all_products]);
 
   function SampleNextArrow(props) {
@@ -33,7 +29,14 @@ const ProteinSection = () => {
     return (
       <div
         className={className}
-        style={{ ...style, display: "block",zIndex:"10", filter: "brightness(0.3)", scale: "1.5", right:"8px" }}
+        style={{
+          ...style,
+          display: "block",
+          zIndex: "10",
+          filter: "brightness(0.3)",
+          scale: "1.5",
+          right: "8px",
+        }}
         onClick={onClick}
       />
     );
@@ -45,7 +48,12 @@ const ProteinSection = () => {
       <div
         className={className}
         style={{
-          ...style, display: "block", zIndex:"10", filter: "brightness(0.3)", scale: "1.5", left:"-8px"
+          ...style,
+          display: "block",
+          zIndex: "10",
+          filter: "brightness(0.3)",
+          scale: "1.5",
+          left: "-8px",
         }}
         onClick={onClick}
       />
@@ -61,25 +69,30 @@ const ProteinSection = () => {
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
   };
+
   return (
     <>
       <div className="product_section">
-        <h4>Dairy, Bread & Eggs</h4>
+        <h4>Vegetables & Fruits</h4>
         <div>
           <Slider {...settings}>
-            {product && product.map((curElem) => {
-              return (
-                <Link style={{textDecoration: "none"}} to={`/products/${curElem._id}`}>
-                <ProductCard
-                  key={curElem._id}
-                  imgSrc={`http://localhost:3000/public` + curElem.image}
-                  title={curElem.name}
-                  weight={curElem.Unit}
-                  price={curElem.price}
-                />
-                </Link>
-              );
-            })}
+            {product &&
+              product.map((curElem) => {
+                return (
+                  <Link
+                    style={{ textDecoration: "none" }}
+                    to={`/products/${curElem._id}`}
+                  >
+                    <ProductCard
+                      key={curElem._id}
+                      imgSrc={`http://localhost:3000/public` + curElem.image}
+                      title={curElem.name}
+                      weight={curElem.Unit}
+                      price={curElem.price}
+                    />
+                  </Link>
+                );
+              })}
           </Slider>
         </div>
       </div>
@@ -87,4 +100,4 @@ const ProteinSection = () => {
   );
 };
 
-export default ProteinSection;
+export default VegetableAndFruits;
